@@ -12,9 +12,9 @@ function App() {
     <Router>
     <div className="App">
       <nav className="navbar navbar-expand-md navbar-light bg-light">
-        <a href="#" className="navbar-brand">
+        <a href="/home" className="navbar-brand">
             <img src={logo} height="28" alt="CoolBrand" />
-            <span className="pl-3">Covid 19 - India Dashboard</span>
+            <span className="pl-3">Covid 19 - India Tracker</span>
         </a>
         <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span className="navbar-toggler-icon"></span>

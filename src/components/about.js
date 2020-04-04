@@ -9,6 +9,7 @@ export default class about extends Component {
                         <p>About and Useful Information</p>
                     </div>
                     <div className="card-body border-0">
+                        <div className="table-responsive">
                         <table className="table table-borderless table-striped table-hover mt-3 text-left">
                         <tbody>
                             <tr>
@@ -21,7 +22,7 @@ export default class about extends Component {
                             </tr>
                             <tr>
                                 <th>Github Repo</th>
-                                <td></td>
+                                <td><a href="https://github.com/vpnsingh/covid19tracker" target="_blank">github.com/vpnsingh/</a></td>
                             </tr>
                             <tr>
                                 <th>Special Thanks</th>
@@ -37,6 +38,7 @@ export default class about extends Component {
                             </tr>
                             </tbody>
                         </table>
+                        </div>
                     </div>
                 </div>
             </div>
