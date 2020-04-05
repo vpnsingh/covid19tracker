@@ -47,8 +47,8 @@ export default class state extends Component {
                                 {   stateData.map(item => 
                                     <tr key={item.statecode}>
                                         <td className="text-left">{item.state}</td>
+                                        <td>{item.confirmed}</td>                            
                                         <td>{item.active}</td>
-                                        <td>{item.confirmed}</td>
                                         <td>{item.recovered}</td>
                                         <td>{item.deaths}</td>
                                     </tr>)
