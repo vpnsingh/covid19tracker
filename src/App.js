@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
     <div className="App">
-      <nav className="navbar navbar-expand-md navbar-light bg-light">
+      <nav className="navbar navbar-expand-md navbar-light bg-light fixed-top">
         <a href="/home" className="navbar-brand">
             <img src={logo} height="28" alt="CoolBrand" />
             <span className="pl-3">Covid 19 - India Tracker</span>
@@ -39,6 +39,7 @@ function App() {
             </div>
         </div>
     </nav>
+    <br/><br/><br/>
       <Switch>
         <Route exact path="/" component={Home}></Route>
         <Route exact path="/home" component={Home}></Route>
