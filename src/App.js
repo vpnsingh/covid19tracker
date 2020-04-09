@@ -5,13 +5,14 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Home from './components/home';
 import State from './components/state';
 import District from './components/district';
+import VVCMC from './components/vasai_virar';
 import About from './components/about';
 
 function App() {
   return (
     <Router>
     <div className="App">
-      <nav className="navbar navbar-expand-md navbar-light bg-light">
+      <nav className="navbar navbar-expand-md navbar-light bg-light fixed-top">
         <a href="/home" className="navbar-brand">
             <img src={logo} height="28" alt="CoolBrand" />
             <span className="pl-3">Covid 19 - India Tracker</span>
@@ -32,18 +33,23 @@ function App() {
                 <Link to="/district" className="nav-item nav-link active">District Data</Link>
               </li> 
               <li data-toggle="collapse" data-target=".navbar-collapse.show">
+                <Link to="/vasai-virar-city" className="nav-item nav-link active">Vasai - Virar Data</Link>
+              </li>
+              <li data-toggle="collapse" data-target=".navbar-collapse.show">
                 <Link to="/about" className="nav-item nav-link active">About</Link>
               </li>             
             </div>
             <div className="navbar-nav ml-auto">
             </div>
         </div>
-    </nav>
+      </nav>
+      <br/><br/><br/>
       <Switch>
         <Route exact path="/" component={Home}></Route>
         <Route exact path="/home" component={Home}></Route>
         <Route exact path="/state" component={State}></Route>
         <Route exact path="/district" component={District}></Route>
+        <Route exact path="/vasai-virar-city" component={VVCMC}></Route>
         <Route exact path="/about" component={About}></Route>
       </Switch>
     </div>

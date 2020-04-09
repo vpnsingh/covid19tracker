@@ -60,3 +60,57 @@
   text-transform: uppercase;
   font-weight: bold;
 } 
+
+
+/* .vvtable responsive css */
+/* 
+Max width before this PARTICULAR .vvtable gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force .vvtable to not be like .vvtables anymore */
+	.vvtable thead,.vvtable tbody,.vvtable th,.vvtable td,.vvtable tr { 
+		display: block; 
+	}
+	
+	/* Hide .vvtable headers (but not display: none;, for accessibility) */
+	.vvtable thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	.vvtable tr { border: 1px solid #ccc; }
+	
+	.vvtable td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+    padding-left: 50%; 
+    text-align: right;
+	}
+	
+	.vvtable td:before { 
+		/* Now like a .vvtable header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 10px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+    white-space: nowrap;
+    text-align: left;
+  }
+  	/*
+	Label the data
+	*/
+	.vvtable td:nth-of-type(1):before { content: "Area : "; }
+	.vvtable td:nth-of-type(2):before { content: "Unit : "; }
+  .vvtable td:nth-of-type(3):before { content: "Person In Charge : "; }
+	.vvtable td:nth-of-type(4):before { content: "Number : "; }
+}

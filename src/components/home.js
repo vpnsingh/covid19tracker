@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Banner from '../assets/images/banner.png'
 import axios from 'axios';
+import moment from 'moment';
 import { testcount } from '../core/apidata';
 
 export default class home extends Component {
@@ -83,7 +84,7 @@ export default class home extends Component {
                         </div>
 
                         <div className="alert alert-success text-left mt-5">
-                            <strong>Last Updated Time : </strong> {countData.lastupdatedtime}
+                            <strong>Last Updated Time : </strong> {moment(countData.lastupdatedtime, 'DD/MM/YYYY HH:mm:ss').format('LLLL')}
                         </div>
 
                         </div>
