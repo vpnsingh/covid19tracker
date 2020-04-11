@@ -114,3 +114,32 @@ only screen and (max-width: 760px),
   .vvtable td:nth-of-type(3):before { content: "Person In Charge : "; }
 	.vvtable td:nth-of-type(4):before { content: "Number : "; }
 }
+
+/* home.js with card-details of info */
+  .card-info-font p{
+    font-size: 16px !important;
+  }
+  .card-header-info-bg-red{
+    background: #c1172f !important;
+    color: #fff;
+  }
+  .card-header-info-bg-purple{
+    background: #5849b4 !important;
+    color: #fff;
+  }
+  .card-header-info-bg-green{
+    background: #5aab38 !important;
+    color: #fff;
+  }
+  .card-body-info-bg-red-l{
+    background: #f8c7ce;
+    color: #c1172f;
+  }
+  .card-body-info-bg-purple-l{
+    background: #d9d5f4;
+    color: #5849b4;
+  }
+  .card-body-info-bg-green-l{
+    background:#ddf4d4;
+    color: #5aab38;
+  }

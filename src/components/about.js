@@ -36,6 +36,10 @@ export default class about extends Component {
                                 <th>Crowdsourced Patient Database</th>
                                 <td><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSc_2y5N0I67wDU38DjDh35IZSIS30rQf7_NYZhtYYGU1jJYT6_kDx4YpF-qw0LSlGsBYP8pqM_a1Pd/pubhtml" target="_blank">Click Here</a></td>
                             </tr>
+                            <tr>
+                                <th>Data source for Vasai-Virar</th>
+                                <td>Sanjay Gupta</td>
+                            </tr>
                             </tbody>
                         </table>
                         </div>

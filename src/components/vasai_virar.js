@@ -26,37 +26,63 @@ export default class vasai_virar extends Component {
         });
 
         // fetch latest news
-        const newsRef = firebase.database().ref('news');
+        const newsRef = firebase.database().ref('newsData');
         newsRef.on('value', (snapshot) => {
             let newsdata = snapshot.val();
             console.log(newsdata, "news received");
+            let ptState = [];
+            for (let item in newsdata) {
+              ptState.push({
+                id: item,
+                news : newsdata[item].news
+              });
+            }
             this.setState({
-                newsData : snapshot.val(),
+                newsData : ptState,
                 isData : true
             });
         });
+
+        // fetch latest news
+        // const patientRef = firebase.database().ref('patient').orderByKey();
+        // patientRef.on('value', (snapshot) => {
+        //     let items = snapshot.val();
+        //     let ptState = [];
+        //     for (let item in items) {
+        //       ptState.push({
+        //         id: item,
+        //         area: items[item].area,
+        //         status: items[item].status,
+        //         date : items[item].date
+        //       });
+        //     }
+        //     this.setState({
+        //       patientData: ptState
+        //     });
+        //   });
 
     }
 
     render() {
         const {covidData, error, newsData } = this.state;
-        // console.log(covidData);
+        console.log(newsData);
         return (
-            
-            
             <div className="container">
                 <h3 className="my-3">Vasai - Virar City Data</h3>
                 {
                     this.state.isData ?
                     <div className="container">
                     <div className="table-responsive">
-                    <table className="table  table-bordered table-hover mt-3 font-weight-bold">
+                    <table className="table table-bordered table-hover mt-3 font-weight-bold">
                         <tbody>
                             <tr className="text-danger">
                                 <th className="text-left">Confirmed</th><td>{covidData.total}</td>
                             </tr>
                             <tr className="text-primary">
                                 <th className="text-left">Active</th><td>{covidData.active}</td>
+                            </tr>
+                            <tr className="text-success">
+                                <th className="text-left">Recovered</th><td>{covidData.recovered}</td>
                             </tr>
                             <tr className="text-secondary">
                                 <th className="text-left">Deceased</th><td>{covidData.deceased}</td>
@@ -95,11 +121,14 @@ export default class vasai_virar extends Component {
                     <div className="tab-content">
                         <div className="tab-pane container active text-justify" id="news">
                             <br/>
-                            <p>{newsData.news1}</p>
-                            <p>{newsData.news2}</p>
-                            <p>{newsData.news3}</p>
-                            <p>{newsData.news4}</p>
-                            <p>{newsData.news5}</p>
+                            <ol className="pl-2">
+                            {
+                                newsData.sort((a, b) => b.id - a.id).slice(0, 5).map(
+                                (item, i) => 
+                                    <li className="mb-2" key={i}> {item.news} </li>
+                                )
+                            }
+                            </ol>
                         </div>
                         <div className="tab-pane container fade" id="helpline">
                             <h4 className="text-left pt-2">Helpline Numbers : </h4>
@@ -246,12 +275,31 @@ export default class vasai_virar extends Component {
                             </div>
                         </div>
                     </div>
-
+                    <hr/>
+                    <h4 className="text-left">Important Links :</h4>
+                    <ul className="pl-4 mt-2 text-left">
+                        <li className="mb-2">
+                            <a href="https://vvcmc.in/vvmc/corona/local_host/HealthSurvey.html" target="_blank">Vasai Virar City Health Survey (वसई विरार शहर आरोग्य सर्वेक्षण)</a>
+                        </li> 
+                        <li className="mb-2">
+                            <a href="https://vvcmc.in/vvmc/?p=4695&lang=en" target="_blank">वसई विरार शहर करोना विषाणू संसर्गाची लक्षणे</a>
+                        </li>   
+                        <li className="mb-2">
+                            <a href="https://covid-19.maharashtra.gov.in/" target="_blank">COVID-19 (Coronavirus) - Self Assessment Tool
+                            </a>
+                        </li>
+                        <li className="mb-2">
+                            <a href="https://www.mahainfocorona.in/mr" target="_blank">करोना प्रतिबंध आणि महाराष्ट्र</a>
+                        </li>
+                        <li className="mb-2">
+                            <a href="http://stopcoronavirus.mcgm.gov.in/" target="_blank">Stop Coronavirus in Mumbai</a>
+                        </li>    
+                    </ul>        
                     <div className="alert alert-success text-left mt-5">
                         <strong>Last Updated Time : </strong> {covidData.updatetime}
                     </div>
-                    <p className="font-italic">Data Credit : Updated on daily basis by Sanjay Gupta (Mail ID : gsanjay125@gmail.com )</p>
-                </div> 
+
+                    </div> 
                     :   <div className="d-flex justify-content-center align-items-center mt-5">
                             <div className="spinner-border spinner-border-md mr-3" role="status" aria-hidden="true"></div>
                             <p className="m-0 font-weight-bold">Loading... </p>
