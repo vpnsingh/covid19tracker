@@ -47,10 +47,13 @@
   text-transform: uppercase !important;
 }
 .card .card-header {
-  padding: .5rem 1rem;
+  padding: .5rem 0.5rem;
   margin-bottom: 0;
   background-color: rgba(0,0,0,.03);
   border-bottom: 0px !important;
+}
+.card .card-body{
+  padding: 0.5rem;
 }
 .card .card-body p{
   font-size: 30px;
@@ -60,7 +63,36 @@
   text-transform: uppercase;
   font-weight: bold;
 } 
+.stateDataTable{
+  border-collapse: separate;
+}
+.stateDataTable td {
+  padding-top: .5em;
+  padding-bottom: .5em;
+}
+@media only screen and (max-width: 760px){
+  .stateMob {
+    font-size: 14px;
+  }
+  .stateMob th{
+    padding: 0.35rem !important;
+  }
+  .stateMob td{
+    padding: 0.35rem !important;
+  }
+  .stateMob thead tr th:nth-of-type(2) span { display: none; }
+  .stateMob thead tr th:nth-of-type(2):before { content: "Cnfrmd"; }
+  .stateMob thead tr th:nth-of-type(3) span { display: none; }
+  .stateMob thead tr th:nth-of-type(3):before { content: "Actv"; }
+  .stateMob thead tr th:nth-of-type(4) span { display: none; }
+  .stateMob thead tr th:nth-of-type(4):before { content: "Rcvrd"; }
+  .stateMob thead tr th:nth-of-type(5) span { display: none; }
+  .stateMob thead tr th:nth-of-type(5):before { content: "Dcsd"; }
 
+  .card .card-body p {
+    font-size: 25px;
+  }
+}
 
 /* .vvtable responsive css */
 /* 

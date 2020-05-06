@@ -29,7 +29,7 @@ export default class vasai_virar extends Component {
         const newsRef = firebase.database().ref('newsData');
         newsRef.on('value', (snapshot) => {
             let newsdata = snapshot.val();
-            console.log(newsdata, "news received");
+            // console.log(newsdata, "news received");
             let ptState = [];
             for (let item in newsdata) {
               ptState.push({
@@ -43,29 +43,10 @@ export default class vasai_virar extends Component {
             });
         });
 
-        // fetch latest news
-        // const patientRef = firebase.database().ref('patient').orderByKey();
-        // patientRef.on('value', (snapshot) => {
-        //     let items = snapshot.val();
-        //     let ptState = [];
-        //     for (let item in items) {
-        //       ptState.push({
-        //         id: item,
-        //         area: items[item].area,
-        //         status: items[item].status,
-        //         date : items[item].date
-        //       });
-        //     }
-        //     this.setState({
-        //       patientData: ptState
-        //     });
-        //   });
-
     }
 
     render() {
         const {covidData, error, newsData } = this.state;
-        console.log(newsData);
         return (
             <div className="container">
                 <h3 className="my-3">Vasai - Virar City Data</h3>

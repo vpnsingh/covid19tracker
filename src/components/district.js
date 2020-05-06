@@ -15,7 +15,7 @@ export default class district extends Component {
     componentDidMount(){
         axios.get(statewise)
         .then(res =>{
-            // console.log("district wise Data: ",res);
+            console.log("district wise Data: ",res);
             this.setState({districtData : res.data});
         })
         .catch(err => {
@@ -26,12 +26,14 @@ export default class district extends Component {
 
     render() {
         const {districtData,error} = this.state
+        console.log(districtData)
         return (
             <div className="container">
                 <h3 className="my-3">State - District wise data</h3>
                 <div id="accordion">
                 {   
-                    districtData.map((item) => 
+                    districtData.sort((astate,bstate)=> astate.state.localeCompare(bstate.state)).map((item) => 
+                
                         <div className="card text-uppercase m-2" key={item.state}>
                             <div className="card-header text-left" data-toggle="collapse" href={'#'+item.state.replace(/ /g,"_")}>
                                 <a className="card-link font-weight-bold text-dark">
@@ -50,7 +52,7 @@ export default class district extends Component {
                                         </thead>
                                         <tbody>
                                             {
-                                                item.districtData.map(disdata => 
+                                                item.districtData.sort((adistrict, bdistrict) => bdistrict.confirmed - adistrict.confirmed).map(disdata => 
                                                     <tr key={disdata.district}>
                                                         <td className="text-left">{disdata.district}</td>
                                                         <td>{disdata.confirmed}</td>
