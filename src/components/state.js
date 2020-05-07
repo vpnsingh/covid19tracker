@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 import axios from 'axios';
 import { testcount } from '../core/apidata';
 
@@ -29,7 +31,7 @@ export default class state extends Component {
         const statelist = stateData.sort((astate, bstate) => bstate.confirmed - astate.confirmed).map(item => 
             {
                 let showrow = item.statecode === "TT" ? {display: 'none'} : {};
-                return  <tr key={item.statecode} style={showrow}>
+                return  <tr key={item.statecode} style={showrow} className={this.props.tableConfig}>
                             <td className="text-left">{item.state}</td>
                             <td>{item.confirmed}</td>
                             <td>{item.active}</td>
@@ -43,7 +45,7 @@ export default class state extends Component {
                     <h3>State wise data</h3>
                     {   
                         <div className="table-responsive">
-                        <table className="table table-bordered table-bordered table-striped table-hover mt-3 stateDataTable stateMob">
+                        <table className="table table-bordered table-bordered table-striped table-hover mt-3 stateDataTable stateMob" >
                             <thead className="bg-white text-white">
                                 <tr>
                                     <th className="text-left text-dark">state / UT</th>

@@ -41,7 +41,7 @@ export default class home extends Component {
                     <h4 className="text-left mb-4">COVID-19 TRACKER COUNT : </h4>
                     <div className="row">
                         <div className="col-lg-3 col-6">
-                            <div className="card shadow-sm text-primary">
+                            <div className={"card shadow-sm text-danger "+this.props.background}>
                                 <div className="card-header">
                                     <p>Confirmed</p>
                                 </div>
@@ -52,7 +52,7 @@ export default class home extends Component {
                         </div> 
                             
                         <div className="col-lg-3 col-6">
-                            <div className="card shadow-sm text-danger">
+                            <div className={"card shadow-sm text-primary "+this.props.background}>
                                 <div className="card-header">
                                     <p>Active</p>
                                 </div>
@@ -63,7 +63,7 @@ export default class home extends Component {
                         </div>
 
                         <div className="col-lg-3 col-6">
-                        <div className="card shadow-sm text-success">
+                        <div className={"card shadow-sm text-success "+this.props.background}>
                             <div className="card-header">
                                 <p>Recovered</p>
                             </div>
@@ -74,7 +74,7 @@ export default class home extends Component {
                         </div>
                         
                         <div className="col-lg-3 col-6">
-                        <div className="card shadow-sm text-secondary">
+                        <div className={"card shadow-sm text-secondary "+this.props.background}>
                             <div className="card-header">
                                 <p>Deceased</p>
                             </div>
@@ -85,7 +85,7 @@ export default class home extends Component {
                         </div>
 
                         <div className="col-lg-3 col-6">
-                        <div className="card shadow-sm text-info">
+                        <div className={"card shadow-sm text-info "+this.props.background}>
                             <div className="card-header">
                                 <p>Recovery Rate</p>
                             </div>
@@ -96,7 +96,7 @@ export default class home extends Component {
                         </div>
 
                         <div className="col-lg-3 col-6">
-                        <div className="card shadow-sm text-info">
+                        <div className={"card shadow-sm text-info "+this.props.background}>
                             <div className="card-header">
                                 <p>Deceased Rate</p>
                             </div>

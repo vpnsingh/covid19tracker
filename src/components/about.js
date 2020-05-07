@@ -8,9 +8,9 @@ export default class about extends Component {
                     <div className="card-header">
                         <p>About and Useful Information</p>
                     </div>
-                    <div className="card-body border-0">
+                    <div className={"card-body border-0 "+this.props.background}>
                         <div className="table-responsive">
-                        <table className="table table-borderless table-striped table-hover mt-3 text-left">
+                        <table className={"table table-borderless table-striped table-hover mt-3 text-left "+this.props.tableConfig}>
                         <tbody>
                             <tr>
                                 <th>Developer</th>

@@ -34,16 +34,16 @@ export default class district extends Component {
                 {   
                     districtData.sort((astate,bstate)=> astate.state.localeCompare(bstate.state)).map((item) => 
                 
-                        <div className="card text-uppercase m-2" key={item.state}>
+                        <div className={"card text-uppercase m-2 "+this.props.background} key={item.state}>
                             <div className="card-header text-left" data-toggle="collapse" href={'#'+item.state.replace(/ /g,"_")}>
-                                <a className="card-link font-weight-bold text-dark">
+                                <a className="card-link font-weight-bold">
                                     {item.state}
                                 </a>
                             </div>
                             <div id={item.state.replace(/ /g,"_")} className="collapse" data-parent="#accordion">
                                 <div className="card-body">
                                     <div className="table-responsive">
-                                    <table className="table table-borderless table-bordered table-striped table-hover mt-3 stateDataTable">
+                                    <table className={"table table-borderless table-bordered table-striped table-hover mt-3 stateDataTable "+this.props.tableConfig}>
                                         <thead className="bg-secondary text-white">
                                             <tr>
                                                 <th className="text-left">district</th>

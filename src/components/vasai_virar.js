@@ -52,29 +52,53 @@ export default class vasai_virar extends Component {
                 <h3 className="my-3">Vasai - Virar City Data</h3>
                 {
                     this.state.isData ?
-                    <div className="container">
-                    <div className="table-responsive">
-                    <table className="table table-bordered table-hover mt-3 font-weight-bold">
-                        <tbody>
-                            <tr className="text-danger">
-                                <th className="text-left">Confirmed</th><td>{covidData.total}</td>
-                            </tr>
-                            <tr className="text-primary">
-                                <th className="text-left">Active</th><td>{covidData.active}</td>
-                            </tr>
-                            <tr className="text-success">
-                                <th className="text-left">Recovered</th><td>{covidData.recovered}</td>
-                            </tr>
-                            <tr className="text-secondary">
-                                <th className="text-left">Deceased</th><td>{covidData.deceased}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div className="container  mt-5">
+                    <div className="row">
+                        <div className="col-lg-3 col-6">
+                            <div className={"card shadow-sm text-danger "+this.props.background}>
+                                <div className="card-header">
+                                    <p>Confirmed</p>
+                                </div>
+                                <div className="card-body">
+                                    <p>{covidData.total}</p>
+                                </div>
+                            </div><br/>
+                        </div>   
+                        <div className="col-lg-3 col-6">
+                            <div className={"card shadow-sm text-primary "+this.props.background}>
+                                <div className="card-header">
+                                    <p>Active</p>
+                                </div>
+                                <div className="card-body">
+                                    <p>{covidData.active}</p>
+                                </div>
+                            </div><br/>
+                        </div>
+                        <div className="col-lg-3 col-6">
+                        <div className={"card shadow-sm text-success "+this.props.background}>
+                            <div className="card-header">
+                                <p>Recovered</p>
+                            </div>
+                            <div className="card-body">
+                                <p>{covidData.recovered}</p>
+                            </div>
+                        </div><br/>
+                        </div>
+                        <div className="col-lg-3 col-6">
+                        <div className={"card shadow-sm text-secondary "+this.props.background}>
+                            <div className="card-header">
+                                <p>Deceased</p>
+                            </div>
+                            <div className="card-body">
+                                <p>{covidData.deceased}</p>
+                            </div>
+                        </div><br/>
+                        </div>
                     </div>
                     <hr/>
                     <h4 className="text-left">City Distribution :</h4>
                     <div className="table-responsive">
-                    <table className="table table-borderless table-bordered table-striped table-hover mt-3 font-weight-bold">
+                    <table className={"table table-borderless table-bordered table-striped table-hover mt-3 font-weight-bold " + this.props.tableConfig}>
                         <tbody>
                             <tr>
                                 <th className="text-left">Vasai</th><td>{covidData.vasai}</td>
@@ -87,6 +111,9 @@ export default class vasai_virar extends Component {
                             </tr>
                         </tbody>
                     </table>
+                    </div>
+                    <div className="alert alert-success text-left mt-3 offset-lg-8 col-lg-4 col-12">
+                        <strong>Last Updated Time : </strong> {covidData.updatetime}
                     </div>
                     <hr/>
 
@@ -115,7 +142,7 @@ export default class vasai_virar extends Component {
                             <h4 className="text-left pt-2">Helpline Numbers : </h4>
                             <p className="text-left">Please call these numbers only if there is an urgent medical emergency regarding COVID-19.</p>
                             <div className="table-responsive">
-                            <table className="table table-borderless table-bordered table-striped table-hover mt-3 vvtable">
+                            <table className={"table table-borderless table-bordered table-striped table-hover mt-3 vvtable "+ this.props.tableConfig}>
                                 <thead>
                                     <tr>
                                         <th>Area</th>
@@ -276,9 +303,6 @@ export default class vasai_virar extends Component {
                             <a href="http://stopcoronavirus.mcgm.gov.in/" target="_blank">Stop Coronavirus in Mumbai</a>
                         </li>    
                     </ul>        
-                    <div className="alert alert-success text-left mt-5">
-                        <strong>Last Updated Time : </strong> {covidData.updatetime}
-                    </div>
 
                     </div> 
                     :   <div className="d-flex justify-content-center align-items-center mt-5">
