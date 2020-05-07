@@ -10,6 +10,7 @@ import State from './components/state';
 import District from './components/district';
 import VVCMC from './components/vasai_virar';
 import About from './components/about';
+import Page404 from './components/pagenotfound';
 
 function App({ isDark, setIsDark }) {
   const theme = useTheme();
@@ -76,12 +77,13 @@ function App({ isDark, setIsDark }) {
       {isDark ? <i className="fa fa-sun-o text-warning"></i> : <i className="fa fa-moon-o text-dark"></i>}
     </button>
       <Switch>
-        <Route exact path="/" component={Home}></Route>
+        <Route exact path="/" render={() => <Home background={theme.bodyBg} />}></Route>
         <Route exact path="/home" render={() => <Home background={theme.bodyBg} />}></Route>
         <Route exact path="/state" render={() => <State tableConfig={theme.tableText} />}></Route>
         <Route exact path="/district" render={() => <District tableConfig={theme.tableTheme} background={theme.bodyBg} />}></Route>
         <Route exact path="/vasai-virar-city" render={() => <VVCMC tableConfig={theme.tableTheme} background={theme.bodyBg} />}></Route>
         <Route exact path="/about" render={() => <About tableConfig={theme.tableTheme} background={theme.bodyBg} />}></Route>
+        <Route path='*' exact={true} component={Page404} />
       </Switch>
     </div>
     </Router>
