@@ -98,8 +98,11 @@ export default class vasai_virar extends Component {
                     <hr/>
                     <h4 className="text-left">City Distribution :</h4>
                     <div className="table-responsive">
-                    <table className={"table table-borderless table-bordered table-striped table-hover mt-3 font-weight-bold " + this.props.tableConfig}>
+                    <table className={"table table-bordered table-striped table-hover mt-3 font-weight-bold " + this.props.tableConfig}>
                         <tbody>
+                            <tr>
+                                <th className="text-left">Naigaon</th><td>{covidData.naigaon}</td>
+                            </tr>
                             <tr>
                                 <th className="text-left">Vasai</th><td>{covidData.vasai}</td>
                             </tr>
