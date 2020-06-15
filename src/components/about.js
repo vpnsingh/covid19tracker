@@ -38,7 +38,7 @@ export default class about extends Component {
                             </tr>
                             <tr>
                                 <th>Data source for Vasai-Virar</th>
-                                <td>Sanjay Gupta</td>
+                                <td>VVCMC</td>
                             </tr>
                             </tbody>
                         </table>

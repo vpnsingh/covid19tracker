@@ -49,7 +49,7 @@ export default class vasai_virar extends Component {
         const {covidData, error, newsData } = this.state;
         return (
             <div className="container">
-                <h3 className="my-3">Vasai - Virar City Data</h3>
+                <h3 className="my-3">Vasai - Virar Covid Dashboard</h3>
                 {
                     this.state.isData ?
                     <div className="container  mt-5">
@@ -96,7 +96,7 @@ export default class vasai_virar extends Component {
                         </div>
                     </div>
                     <hr/>
-                    <h4 className="text-left">City Distribution :</h4>
+                    <h4 className="text-left">Cases Via Area :</h4>
                     <div className="table-responsive">
                     <table className={"table table-bordered table-striped table-hover mt-3 font-weight-bold " + this.props.tableConfig}>
                         <tbody>
@@ -112,6 +112,9 @@ export default class vasai_virar extends Component {
                             <tr>
                                 <th className="text-left">Virar</th><td>{covidData.virar}</td>
                             </tr>
+                            <tr>
+                                <th className="text-left">Vasai - Virar Rural</th><td>{covidData.rural}</td>
+                            </tr>
                         </tbody>
                     </table>
                     </div>
@@ -120,7 +123,7 @@ export default class vasai_virar extends Component {
                     </div>
                     <hr/>
 
-                    <ul className="nav nav-tabs">
+                    <ul className="nav nav-tabs d-none">
                         <li className="nav-item">
                             <a className="nav-link active" data-toggle="tab" href="#news">Latest News</a>
                         </li>
@@ -129,7 +132,7 @@ export default class vasai_virar extends Component {
                         </li>
                     </ul>
 
-                    <div className="tab-content">
+                    <div className="tab-content d-none">
                         <div className="tab-pane container active text-justify" id="news">
                             <br/>
                             <ol className="pl-2">
