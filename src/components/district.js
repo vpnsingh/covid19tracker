@@ -17,7 +17,7 @@ export default class district extends Component {
     componentDidMount(){
         axios.get(statewise)
         .then(res =>{
-            console.log("district wise Data: ",res);
+            // console.log("district wise Data: ",res);
             this.setState({districtData : res.data});
         })
         .catch(err => {

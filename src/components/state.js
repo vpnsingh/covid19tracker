@@ -17,7 +17,7 @@ export default class state extends Component {
     componentDidMount(){
         axios.get(testcount)
         .then(res =>{
-            console.log("state wise Data: ",res.data.statewise);
+            // console.log("state wise Data: ",res.data.statewise);
             this.setState({stateData : res.data.statewise});
         })
         .catch(err => {
