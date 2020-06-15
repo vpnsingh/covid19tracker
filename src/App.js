@@ -80,7 +80,7 @@ function App({ isDark, setIsDark }) {
         <Route exact path="/" render={() => <Home background={theme.bodyBg} />}></Route>
         <Route exact path="/home" render={() => <Home background={theme.bodyBg} />}></Route>
         <Route exact path="/state" render={() => <State tableConfig={theme.tableText} />}></Route>
-        <Route exact path="/district" render={() => <District tableConfig={theme.tableTheme} background={theme.bodyBg} />}></Route>
+        <Route exact path="/district" render={() => <District tableConfig={theme.tableText} background={theme.bodyBg} />}></Route>
         <Route exact path="/vasai-virar-city" render={() => <VVCMC tableConfig={theme.tableTheme} background={theme.bodyBg} />}></Route>
         <Route exact path="/about" render={() => <About tableConfig={theme.tableTheme} background={theme.bodyBg} />}></Route>
         <Route path='*' exact={true} component={Page404} />

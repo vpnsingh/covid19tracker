@@ -61,7 +61,7 @@ export default class district extends Component {
                                         <tbody>
                                             {
                                                 item.districtData.sort((adistrict, bdistrict) => bdistrict.confirmed - adistrict.confirmed).map(disdata => 
-                                                    <tr key={disdata.district}>
+                                                    <tr key={disdata.district} className={this.props.tableConfig}>
                                                         <td className="text-left">{disdata.district}</td>
                                                         <td>{disdata.confirmed}</td>
                                                         <td>{disdata.active}</td>
