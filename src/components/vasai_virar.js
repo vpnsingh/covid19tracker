@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton, TwitterVideoEmbed, TwitterOnAirButton } from 'react-twitter-embed';
+
 import firebase from '../firebase'
 
 export default class vasai_virar extends Component {
@@ -122,8 +124,8 @@ export default class vasai_virar extends Component {
                         <strong>Last Updated Time : </strong> {covidData.updatetime}
                     </div>
                     <hr/>
-
-                    <ul className="nav nav-tabs d-none">
+                    
+                   <ul className="nav nav-tabs d-none">
                         <li className="nav-item">
                             <a className="nav-link active" data-toggle="tab" href="#news">Latest News</a>
                         </li>
@@ -289,7 +291,6 @@ export default class vasai_virar extends Component {
                             </div>
                         </div>
                     </div>
-                    <hr/>
                     <h4 className="text-left">Important Links :</h4>
                     <ul className="pl-4 mt-2 text-left">
                         <li className="mb-2">
@@ -308,8 +309,16 @@ export default class vasai_virar extends Component {
                         <li className="mb-2">
                             <a href="http://stopcoronavirus.mcgm.gov.in/" target="_blank">Stop Coronavirus in Mumbai</a>
                         </li>    
-                    </ul>        
-
+                    </ul>    
+                    <hr/>    
+                    <div>
+                        <h4 className="text-left">Daily News :</h4>
+                        <TwitterTimelineEmbed
+                            sourceType="profile"
+                            screenName="Suhas_News"
+                            options={{height: 1000}}
+                        />
+                    </div>
                     </div> 
                     :   <div className="d-flex justify-content-center align-items-center mt-5">
                             <div className="spinner-border spinner-border-md mr-3" role="status" aria-hidden="true"></div>
