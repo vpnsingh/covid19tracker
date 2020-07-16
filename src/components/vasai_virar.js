@@ -97,9 +97,8 @@ export default class vasai_virar extends Component {
                         </div><br/>
                         </div>
                     </div>
-                    <hr/>
-                    <h4 className="text-left">Cases Via Area :</h4>
-                    <div className="table-responsive">
+                    <h4 className="text-left d-none">Cases Via Area :</h4>
+                    <div className="table-responsive d-none">
                     <table className={"table table-bordered table-striped table-hover mt-3 font-weight-bold " + this.props.tableConfig}>
                         <tbody>
                             <tr>
@@ -120,7 +119,7 @@ export default class vasai_virar extends Component {
                         </tbody>
                     </table>
                     </div>
-                    <div className="alert alert-success text-left mt-3 offset-lg-8 col-lg-4 col-12">
+                    <div className="alert alert-success text-left mt-3 offset-lg-8 col-lg-4 col-12 d-none">
                         <strong>Last Updated Time : </strong> {covidData.updatetime}
                     </div>
                     <hr/>
