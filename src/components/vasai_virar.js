@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton, TwitterVideoEmbed, TwitterOnAirButton } from 'react-twitter-embed';
+import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
 import firebase from '../firebase'
 
@@ -309,14 +309,23 @@ export default class vasai_virar extends Component {
                             <a href="http://stopcoronavirus.mcgm.gov.in/" target="_blank">Stop Coronavirus in Mumbai</a>
                         </li>    
                     </ul>    
-                    <hr/>    
-                    <div>
-                        <h4 className="text-left">Daily News :</h4>
+                    <hr/> 
+                    <h4 className="text-left">Daily News :</h4>   
+                    <div className="row">
+                        <div className="col-md-6 col-12">
+                        <TwitterTimelineEmbed
+                            sourceType="profile"
+                            screenName="WeAreVasai"
+                            options={{height: 700}}
+                        />
+                        </div>
+                        <div className="col-md-6 col-12">
                         <TwitterTimelineEmbed
                             sourceType="profile"
                             screenName="Suhas_News"
-                            options={{height: 1000}}
+                            options={{height: 700}}
                         />
+                        </div>
                     </div>
                     </div> 
                     :   <div className="d-flex justify-content-center align-items-center mt-5">

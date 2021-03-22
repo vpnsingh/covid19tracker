@@ -3,6 +3,7 @@ import Banner from '../assets/images/banner.png'
 import axios from 'axios';
 import moment from 'moment';
 import { testcount } from '../core/apidata';
+import NumericLabel from 'react-pretty-numbers';
 
 export default class home extends Component {
 
@@ -18,7 +19,7 @@ export default class home extends Component {
     componentDidMount(){
         axios.get(testcount)
         .then(res =>{
-            // console.log("total count data: ",res.data.statewise[0]);
+            // console.log("total count data: ",res.data);
             this.setState({countData : res.data.statewise[0]});
         })
         .catch(err => {
@@ -46,7 +47,7 @@ export default class home extends Component {
                                     <p>Confirmed</p>
                                 </div>
                                 <div className="card-body">
-                                    <p>{countData.confirmed}</p>
+                                    <p><NumericLabel>{countData.confirmed}</NumericLabel></p>
                                 </div>
                             </div><br/>
                         </div> 
@@ -57,7 +58,7 @@ export default class home extends Component {
                                     <p>Active</p>
                                 </div>
                                 <div className="card-body">
-                                    <p>{countData.active}</p>
+                                    <p><NumericLabel>{countData.active}</NumericLabel></p>
                                 </div>
                             </div><br/>
                         </div>
@@ -68,7 +69,7 @@ export default class home extends Component {
                                 <p>Recovered</p>
                             </div>
                             <div className="card-body">
-                                <p>{countData.recovered}</p>
+                                <p><NumericLabel>{countData.recovered}</NumericLabel></p>
                             </div>
                         </div><br/>
                         </div>
@@ -79,7 +80,7 @@ export default class home extends Component {
                                 <p>Deceased</p>
                             </div>
                             <div className="card-body">
-                                <p>{countData.deaths}</p>
+                                <p><NumericLabel>{countData.deaths}</NumericLabel></p>
                             </div>
                         </div><br/>
                         </div>

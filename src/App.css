@@ -175,3 +175,49 @@ only screen and (max-width: 760px),
     background:#ddf4d4;
     color: #5aab38;
   }
+
+  /* Vaccination Dashboard CSS */
+  .vaccination-div {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    box-shadow: 20px 20px #000000;
+  }
+  .vaccination-div .heading{
+    font-size: 18px;
+  }
+  .vaccination-div .heading span{
+    font-size: 20px;
+    padding-left: 10px;
+  }
+  .vaccineDataTable th, .vaccineDataTable td{
+    text-transform: uppercase;
+    font-weight: bold;
+  } 
+  .vaccineDataTable{
+    border-collapse: separate;
+  }
+  .vaccineDataTable td {
+    padding-top: .5em;
+    padding-bottom: .5em;
+  }
+  @media only screen and (max-width: 760px){
+    .vaccineDataTableMob {
+      font-size: 14px;
+    }
+    .vaccineDataTableMob th{
+      padding: 0.35rem !important;
+    }
+    .vaccineDataTableMob td{
+      padding: 0.35rem !important;
+    }
+    .vaccineDataTableMob thead tr th:nth-of-type(2) span { display: none; }
+    .vaccineDataTableMob thead tr th:nth-of-type(2):before { content: "Today"; }
+    .vaccineDataTableMob thead tr th:nth-of-type(3) span { display: none; }
+    .vaccineDataTableMob thead tr th:nth-of-type(3):before { content: "Partial"; }
+    .vaccineDataTableMob thead tr th:nth-of-type(4) span { display: none; }
+    .vaccineDataTableMob thead tr th:nth-of-type(4):before { content: "Totally"; }
+    .vaccineDataTableMob thead tr th:nth-of-type(5) span { display: none; }
+    .vaccineDataTableMob thead tr th:nth-of-type(5):before { content: "Total"; }
+
+  }

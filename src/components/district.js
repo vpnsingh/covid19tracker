@@ -3,6 +3,7 @@ import axios from 'axios';
 import { statewise } from '../core/apidata';
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
+import NumericLabel from 'react-pretty-numbers';
 
 export default class district extends Component {
     constructor(props) {
@@ -63,10 +64,10 @@ export default class district extends Component {
                                                 item.districtData.sort((adistrict, bdistrict) => bdistrict.confirmed - adistrict.confirmed).map(disdata => 
                                                     <tr key={disdata.district} className={this.props.tableConfig}>
                                                         <td className="text-left">{disdata.district}</td>
-                                                        <td>{disdata.confirmed}</td>
-                                                        <td>{disdata.active}</td>
-                                                        <td>{disdata.recovered}</td>
-                                                        <td>{disdata.deceased}</td>
+                                                        <td><NumericLabel>{disdata.confirmed}</NumericLabel></td>
+                                                        <td><NumericLabel>{disdata.active}</NumericLabel></td>
+                                                        <td><NumericLabel>{disdata.recovered}</NumericLabel></td>
+                                                        <td><NumericLabel>{disdata.deceased}</NumericLabel></td>
                                                     </tr>
                                                 )
                                             }

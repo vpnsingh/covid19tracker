@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { css, jsx } from "@emotion/core";
 import axios from 'axios';
 import { testcount } from '../core/apidata';
+import NumericLabel from 'react-pretty-numbers';
 
 export default class state extends Component {
     constructor(props) {
@@ -33,10 +34,10 @@ export default class state extends Component {
                 let showrow = item.statecode === "TT" ? {display: 'none'} : {};
                 return  <tr key={item.statecode} style={showrow} className={this.props.tableConfig}>
                             <td className="text-left">{item.state}</td>
-                            <td>{item.confirmed}</td>
-                            <td>{item.active}</td>
-                            <td>{item.recovered}</td>
-                            <td>{item.deaths}</td>
+                            <td><NumericLabel>{item.confirmed}</NumericLabel></td>
+                            <td><NumericLabel>{item.active}</NumericLabel></td>
+                            <td><NumericLabel>{item.recovered}</NumericLabel></td>
+                            <td><NumericLabel>{item.deaths}</NumericLabel></td>
                         </tr>
             })
         return (

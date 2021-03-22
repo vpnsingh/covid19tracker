@@ -11,6 +11,7 @@ import District from './components/district';
 import VVCMC from './components/vasai_virar';
 import About from './components/about';
 import Page404 from './components/pagenotfound';
+import Vaccination from './components/Vaccination';
 
 function App({ isDark, setIsDark }) {
   const theme = useTheme();
@@ -49,6 +50,9 @@ function App({ isDark, setIsDark }) {
               <Link to="/district" className="nav-item nav-link active">District Data</Link>
             </li> 
             <li data-toggle="collapse" data-target=".navbar-collapse.show">
+              <Link to="/vaccination" className="nav-item nav-link active">Vaccination</Link>
+            </li>
+            <li data-toggle="collapse" data-target=".navbar-collapse.show">
               <Link to="/vasai-virar-city" className="nav-item nav-link active">Vasai - Virar Data</Link>
             </li>
             <li data-toggle="collapse" data-target=".navbar-collapse.show">
@@ -83,6 +87,7 @@ function App({ isDark, setIsDark }) {
         <Route exact path="/district" render={() => <District tableConfig={theme.tableText} background={theme.bodyBg} />}></Route>
         <Route exact path="/vasai-virar-city" render={() => <VVCMC tableConfig={theme.tableTheme} background={theme.bodyBg} />}></Route>
         <Route exact path="/about" render={() => <About tableConfig={theme.tableTheme} background={theme.bodyBg} />}></Route>
+        <Route exact path="/vaccination" render={() => <Vaccination tableConfig={theme.tableText} background={theme.bodyBg} />}></Route>
         <Route path='*' exact={true} component={Page404} />
       </Switch>
     </div>
