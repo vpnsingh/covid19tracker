@@ -30,7 +30,7 @@ export default class about extends Component {
                             </tr>
                             <tr>
                                 <th>API</th>
-                                <td><a href="https://api.covid19india.org/" target="_blank">api.covid19india.org</a></td>
+                                <td><a href="https://api.covid19india.org/" target="_blank">api.covid19india.org</a> | Co-WIN Portal</td>
                             </tr>
                             <tr>
                                 <th>Crowdsourced Patient Database</th>

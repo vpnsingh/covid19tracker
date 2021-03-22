@@ -17,7 +17,7 @@ const Vaccination = ({tableConfig,background}) => {
             setSummaryData(res.data.topBlock)
             // All state vaccination data
             setStateData(res.data.getBeneficiariesGroupBy)
-            // console.log(res);
+            console.log(res);
         })
         .catch(err => {
             setError(err);
@@ -33,7 +33,7 @@ const Vaccination = ({tableConfig,background}) => {
         <div className="container">
             <h3 className="my-3">Vaccination Dashboard</h3>
             {
-                summaryData ? 
+                stateData.length > 0 ? 
                 <div className="container mt-5">
                 <div className="row">
                     <div className="col-md-4 col-12">
