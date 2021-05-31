@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Banner from '../assets/images/banner.png'
 import axios from 'axios';
 import moment from 'moment';
-import { testcount } from '../core/apidata';
+import { testcount, vaccination_data } from '../core/apidata';
 import NumericLabel from 'react-pretty-numbers';
 
 export default class home extends Component {
@@ -12,11 +12,13 @@ export default class home extends Component {
     
         this.state = {
              countData : '',
-             error : ''
+             error : '',
+             vaccination : '',
         }
     }
     
     componentDidMount(){
+        this.Vaccination();
         axios.get(testcount)
         .then(res =>{
             // console.log("total count data: ",res.data);
@@ -25,6 +27,18 @@ export default class home extends Component {
         .catch(err => {
             // console.log("Error While Retriving Data");
             this.setState({error : "Error retriving data"});
+        })
+    }
+
+    Vaccination(){
+        axios.get(vaccination_data)
+        .then(res =>{
+            // console.log("total count data: ",res.data);
+            this.setState({vaccination : res.data.topBlock.vaccination});
+        })
+        .catch(err => {
+            // console.log("Error While Retriving Data");
+            // this.setState({error : "Error retriving data"});
         })
     }
 
@@ -39,75 +53,101 @@ export default class home extends Component {
                 <img src={Banner} className="img-fluid" />
                 <hr/>
                 <div className="container mt-5">
-                    <h4 className="text-left mb-4">COVID-19 TRACKER COUNT : </h4>
-                    <div className="row">
-                        <div className="col-lg-3 col-6">
-                            <div className={"card shadow-sm text-danger "+this.props.background}>
-                                <div className="card-header">
-                                    <p>Confirmed</p>
-                                </div>
-                                <div className="card-body">
-                                    <p><NumericLabel>{countData.confirmed}</NumericLabel></p>
-                                </div>
-                            </div><br/>
-                        </div> 
+                    <div className="data-section">
+                        <h3 className={"head-txt "+this.props.background}>COVID-19 TRACKER COUNT </h3>
+                        <div className="row">
+                            <div className="col-lg-3 col-6">
+                                <div className={"card shadow-sm text-danger "+this.props.background}>
+                                    <div className="card-header">
+                                        <p>Confirmed</p>
+                                    </div>
+                                    <div className="card-body">
+                                        <p><NumericLabel>{countData.confirmed}</NumericLabel></p>
+                                    </div>
+                                </div><br/>
+                            </div> 
                             
-                        <div className="col-lg-3 col-6">
-                            <div className={"card shadow-sm text-primary "+this.props.background}>
-                                <div className="card-header">
-                                    <p>Active</p>
-                                </div>
-                                <div className="card-body">
-                                    <p><NumericLabel>{countData.active}</NumericLabel></p>
-                                </div>
-                            </div><br/>
-                        </div>
+                            <div className="col-lg-3 col-6">
+                                <div className={"card shadow-sm text-primary "+this.props.background}>
+                                    <div className="card-header">
+                                        <p>Active</p>
+                                    </div>
+                                    <div className="card-body">
+                                        <p><NumericLabel>{countData.active}</NumericLabel></p>
+                                    </div>
+                                </div><br/>
+                            </div>
 
-                        <div className="col-lg-3 col-6">
-                        <div className={"card shadow-sm text-success "+this.props.background}>
-                            <div className="card-header">
-                                <p>Recovered</p>
+                            <div className="col-lg-3 col-6">
+                                <div className={"card shadow-sm text-success "+this.props.background}>
+                                    <div className="card-header">
+                                        <p>Recovered</p>
+                                    </div>
+                                    <div className="card-body">
+                                        <p><NumericLabel>{countData.recovered}</NumericLabel></p>
+                                    </div>
+                                </div><br/>
                             </div>
-                            <div className="card-body">
-                                <p><NumericLabel>{countData.recovered}</NumericLabel></p>
-                            </div>
-                        </div><br/>
-                        </div>
                         
-                        <div className="col-lg-3 col-6">
-                        <div className={"card shadow-sm text-secondary "+this.props.background}>
-                            <div className="card-header">
-                                <p>Deceased</p>
+                            <div className="col-lg-3 col-6">
+                                <div className={"card shadow-sm text-secondary "+this.props.background}>
+                                    <div className="card-header">
+                                        <p>Deceased</p>
+                                    </div>
+                                    <div className="card-body">
+                                        <p><NumericLabel>{countData.deaths}</NumericLabel></p>
+                                    </div>
+                                </div><br/>
                             </div>
-                            <div className="card-body">
-                                <p><NumericLabel>{countData.deaths}</NumericLabel></p>
-                            </div>
-                        </div><br/>
-                        </div>
 
-                        <div className="col-lg-3 col-6">
-                        <div className={"card shadow-sm text-info "+this.props.background}>
-                            <div className="card-header">
-                                <p>Recovery Rate</p>
+                            <div className="col-lg-3 col-6">
+                                <div className={"card shadow-sm text-info "+this.props.background}>
+                                    <div className="card-header">
+                                        <p>Recovery Rate</p>
+                                    </div>
+                                    <div className="card-body">
+                                        <p>{(Math.round(countData.recovered * 100) / countData.confirmed).toFixed(2)} %</p>
+                                    </div>
+                                </div><br/>
                             </div>
-                            <div className="card-body">
-                                <p>{(Math.round(countData.recovered * 100) / countData.confirmed).toFixed(2)} %</p>
-                            </div>
-                        </div><br/>
-                        </div>
 
-                        <div className="col-lg-3 col-6">
-                        <div className={"card shadow-sm text-info "+this.props.background}>
-                            <div className="card-header">
-                                <p>Deceased Rate</p>
+                            <div className="col-lg-3 col-6">
+                                <div className={"card shadow-sm text-info "+this.props.background}>
+                                    <div className="card-header">
+                                        <p>Deceased Rate</p>
+                                    </div>
+                                    <div className="card-body">
+                                        <p>{(Math.round(countData.deaths * 100) / countData.confirmed).toFixed(2)} %</p>
+                                    </div>
+                                </div><br/>
                             </div>
-                            <div className="card-body">
-                                <p>{(Math.round(countData.deaths * 100) / countData.confirmed).toFixed(2)} %</p>
+
+                            <div className="col-lg-3 col-6">
+                                <div className={"card shadow-sm text-vaccination1 "+this.props.background}>
+                                    <div className="card-header">
+                                        <p>Total Vaccination</p>
+                                    </div>
+                                    <div className="card-body">
+                                        <p><NumericLabel>{this.state.vaccination.total_doses}</NumericLabel></p>
+                                    </div>
+                                </div><br/>
                             </div>
-                        </div><br/>
+
+                            <div className="col-lg-3 col-6">
+                                <div className={"card shadow-sm text-vaccination2 "+this.props.background}>
+                                    <div className="card-header">
+                                        <p>Today's Vaccination</p>
+                                    </div>
+                                    <div className="card-body">
+                                        <p><NumericLabel>{this.state.vaccination.today}</NumericLabel></p>
+                                    </div>
+                                </div><br/>
+                            </div>
                         </div>
                     </div>
-                    <p className="float-right">Last Updated : {moment(countData.lastupdatedtime, 'DD/MM/YYYY HH:mm:ss').format('LLLL')}</p>
+                    {/* <h4 className="text-left mb-4">COVID-19 TRACKER COUNT : </h4> */}
+                    
+                    <p className="float-right mt-2">Last Updated : {moment(countData.lastupdatedtime, 'DD/MM/YYYY HH:mm:ss').format('LLLL')}</p>
                     <br/><br/>
                     <div className="row">
                         <div className="col-lg-4">

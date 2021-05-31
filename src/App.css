@@ -56,7 +56,7 @@
   padding: 0.5rem;
 }
 .card .card-body p{
-  font-size: 30px;
+  font-size: 28px;
 }
 
 .stateDataTable th, .stateDataTable td{
@@ -221,3 +221,25 @@ only screen and (max-width: 760px),
     .vaccineDataTableMob thead tr th:nth-of-type(5):before { content: "Total"; }
 
   }
+
+.data-section{
+    border: 1px solid #DEE2E6;
+    border-radius: 5px;
+    position: relative;
+    padding: 40px 30px 20px 30px;
+    margin-top: 40px;
+}
+.data-section .head-txt{
+  position: absolute;
+  top: -25px;
+  left: 20px;
+  padding: 10px;
+  font-size: 22px;
+}
+
+.text-vaccination1{
+  color: rgb(224, 124, 36)
+}
+.text-vaccination2{
+  color: rgb(32, 115, 152)
+}

@@ -69,10 +69,10 @@ const Vaccination = ({tableConfig,background}) => {
                             <div className="body">
                                 <div className="row">
                                     <div className="col-6">
-                                        <p>Online <br/><NumericLabel>{summaryData.registration?.online}</NumericLabel></p>
+                                        <p>Age 18-44 <br/><NumericLabel>{summaryData.registration?.cit_18_45}</NumericLabel></p>
                                     </div>
                                     <div className="col-6">
-                                        <p>Walk-In <br/><NumericLabel>{summaryData.registration?.onspot}</NumericLabel></p>
+                                        <p>Age 45+ <br/><NumericLabel>{summaryData.registration?.cit_45_above}</NumericLabel></p>
                                     </div>
                                 </div>
                             </div>
@@ -106,11 +106,13 @@ const Vaccination = ({tableConfig,background}) => {
                                 data={[
                                     { title: 'Male', value: summaryData.vaccination?.male, color: '#03C6C7'},
                                     { title: 'Female', value: summaryData.vaccination?.female, color: '#E6425E' },
+                                    { title: 'Others', value: summaryData.vaccination?.others, color: '#FD7E14' },
                                 ]} 
                             />
                             <p className="mt-3 pb-0">
                                 <span className="badge" style={{backgroundColor:'#03C6C7'}}>Male - <NumericLabel>{summaryData.vaccination?.male}</NumericLabel></span>&nbsp;&nbsp;      
-                                <span className="badge" style={{backgroundColor:'#E6425E'}}>Female - <NumericLabel>{summaryData.vaccination?.female}</NumericLabel></span>
+                                <span className="badge" style={{backgroundColor:'#E6425E'}}>Female - <NumericLabel>{summaryData.vaccination?.female}</NumericLabel></span>&nbsp;&nbsp;
+                                <span className="badge" style={{backgroundColor:'#FD7E14'}}>Others - <NumericLabel>{summaryData.vaccination?.others}</NumericLabel></span>
                             </p>
                         </div><br/>
                     </div>
@@ -121,11 +123,13 @@ const Vaccination = ({tableConfig,background}) => {
                                 data={[
                                     { title: 'Covishield', value: summaryData.vaccination?.covishield, color: '#12B0E8'},
                                     { title: 'Covaxin', value: summaryData.vaccination?.covaxin, color: '#38CC77' },
+                                    { title: 'Sputnik V', value: summaryData.vaccination?.sputnik, color: '#FFC107' },
                                 ]} 
                             />
                             <p className="mt-3 pb-0">
                                 <span className="badge" style={{backgroundColor: '#12B0E8'}}>Covishield - <NumericLabel>{summaryData.vaccination?.covishield}</NumericLabel></span>&nbsp;&nbsp;      
-                                <span className="badge" style={{backgroundColor: '#38CC77'}}>Covaxin - <NumericLabel>{summaryData.vaccination?.covaxin}</NumericLabel></span>
+                                <span className="badge" style={{backgroundColor: '#38CC77'}}>Covaxin - <NumericLabel>{summaryData.vaccination?.covaxin}</NumericLabel></span>&nbsp;&nbsp;
+                                <span className="badge" style={{backgroundColor: '#FFC107'}}>Sputnik V - <NumericLabel>{summaryData.vaccination?.sputnik}</NumericLabel></span>
                             </p>
                         </div>
                     </div>

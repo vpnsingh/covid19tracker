@@ -32,9 +32,9 @@ function ToolTip(props: Props) {
             fontFamily: 'Baloo Thambi 2',
         })}
         radius={40}
-        labelPosition={112}
+        // labelPosition={112}
         lineWidth={30}
-        label={({ dataEntry }) => dataEntry.value}
+        // label={({ dataEntry }) => dataEntry.value}
         onMouseOver={(_, index) => {
           setHovered(index);
         }}
