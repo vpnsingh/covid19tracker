@@ -7,7 +7,9 @@ type Props = {
 };
 
 function makeTooltipContent(entry: Props['data'][0]) {
-  return `${entry.tooltip} - ${entry.value}`;
+  return <span style={{color: entry.color,fontWeight: 'bold'}}>
+            {entry.tooltip} - {entry.value}
+          </span>;
 }
 
 function ToolTip(props: Props) {

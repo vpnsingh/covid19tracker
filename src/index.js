@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import { useState } from "react";
 import { ThemeProvider } from "emotion-theming";
 import { themeLight,themeDark } from './core/theme-config';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'jquery/dist/jquery.min.js';
 import 'popper.js/dist/popper.min.js';
 import 'bootstrap/dist/js/bootstrap.js';
 import 'font-awesome/css/font-awesome.min.css';
+import './index.css';
+import App from './App';
 
 function Root() {
   const [isDark, setIsDark] = useState(false);

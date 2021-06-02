@@ -181,14 +181,22 @@ only screen and (max-width: 760px),
     position: relative;
     width: 100%;
     padding: 10px;
-    box-shadow: 20px 20px #000000;
-  }
+    box-shadow: 0 0 10px rgba(0,0,0,.3)!important;
+  } 
   .vaccination-div .heading{
     font-size: 18px;
   }
   .vaccination-div .heading span{
     font-size: 20px;
     padding-left: 10px;
+  }
+  .vaccination-div .today-data-patch{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 14px;
+    padding: 0px 5px;
+    /* border-radius: 5px; */
   }
   .vaccineDataTable th, .vaccineDataTable td{
     text-transform: uppercase;
